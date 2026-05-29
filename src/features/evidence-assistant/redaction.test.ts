@@ -21,6 +21,6 @@ describe("redaction", () => {
   it("redacts sensitive query params", () => {
     const result = redactUrl("https://app.test/api?token=abc123&page=1");
     expect(result.hadSensitiveData).toBe(true);
-    expect(result.text).toContain("[REDACTED]");
+    expect(decodeURIComponent(result.text)).toContain("[REDACTED]");
   });
 });

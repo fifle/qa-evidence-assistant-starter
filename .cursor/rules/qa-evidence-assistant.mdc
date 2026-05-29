@@ -1,0 +1,15 @@
+---
+description: QA Evidence Assistant workshop project rules
+globs: "**/*.{ts,tsx}"
+alwaysApply: true
+---
+
+# QA Evidence Assistant
+
+- Frontend only; no backend or external API calls from the app
+- Process HAR files locally in the browser
+- Use sanitized sample data only
+- Redact Authorization, Cookie, emails, tokens before display
+- Separate facts from assumptions; never claim root cause with certainty
+- Keep code readable for workshop participants
+- Add Vitest tests for pure logic changes

@@ -16,8 +16,8 @@ Open the forwarded port **5173** in Coder / VS Code Web.
 ## Quick start (Coder workspace)
 
 1. Open your cloud workspace (VS Code Web).
-2. Run `npm install` if needed.
-3. Run `npm run dev`.
+2. Wait until `~/.ntd-setup-complete` exists (startup installs deps), or run `npm install`.
+3. Run `npm run dev` (uses `node node_modules/vite/bin/vite.js` — no `.bin` symlinks).
 4. Open the forwarded port **5173**.
 5. Upload `samples/har/checkout-409-conflict.sanitized.har`.
 6. Click **Generate report**.

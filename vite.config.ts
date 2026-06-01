@@ -6,7 +6,9 @@ const DEV_PORT = 5173;
 
 /** Coder port subdomain for HMR over TLS (e.g. 5173--main--challenge-xxx--chcloud.cloud.challeng.ee). */
 function resolveCoderHmr(port: number): HmrOptions | undefined {
-  const explicit = process.env.CODER_VITE_HMR_HOST?.trim();
+  const explicit =
+    process.env.CODER_VITE_HMR_HOST?.trim() ||
+    process.env.VITE_HMR_HOST?.trim();
   if (explicit) {
     return { protocol: "wss", host: explicit, clientPort: 443 };
   }

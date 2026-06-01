@@ -17,7 +17,7 @@ Open the forwarded port **5173** in Coder / VS Code Web.
 
 1. Open your cloud workspace (VS Code Web).
 2. Wait until `~/.ntd-setup-complete` exists (startup installs deps), or run `npm install`.
-3. Run `npm run dev` (uses `node node_modules/vite/bin/vite.js` — no `.bin` symlinks).
+3. Run `npm run dev` (scripts call `node node_modules/...` — no `node_modules/.bin` symlinks on the PVC).
 4. Open the forwarded port **5173**.
 5. Upload `samples/har/checkout-409-conflict.sanitized.har`.
 6. Click **Generate report**.
@@ -38,6 +38,10 @@ Open the forwarded port **5173** in Coder / VS Code Web.
 - `prompts/` — AI pair-programming exercises for the workshop
 
 See **START_HERE.md** for the workshop walkthrough.
+
+## Coder PVC (`bin-links=false`)
+
+Workshop workspaces set `bin-links=false` in `.npmrc` because the home volume cannot create symlinks under `/home/coder`. **`npm run` does not add `node_modules/.bin` to PATH**, so bare `vite` / `tsc` / `vitest` in `package.json` fail with `sh: tsc: not found`. This repo uses explicit `node node_modules/...` paths in scripts instead.
 
 ## Constraints
 
